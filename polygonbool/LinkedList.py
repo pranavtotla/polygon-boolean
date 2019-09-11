@@ -49,3 +49,21 @@ class SinglyLinkedList:
         while curr and curr.data != data:
             curr = curr.next
         return curr
+
+    def insert(self, data, prev):
+        if self.find(prev):
+            prev = self.find(prev)
+            node = Node(data=data, next=prev.next)
+            prev.next = node
+
+    def remove(self, data):
+        curr = self.head
+        prev = None
+        while curr and curr.data != data:
+            prev = curr
+            curr = curr.next
+        if prev is None:
+            self.head = curr.next
+        elif curr:
+            prev.next = curr.next
+            curr.next = None
