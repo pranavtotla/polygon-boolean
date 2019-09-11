@@ -82,3 +82,8 @@ class SinglyLinkedList:
         elif curr:
             prev.next = curr.next
             curr.next = None
+
+    def is_empty(self):
+        if self.head is not None:
+            return True
+        return False
