@@ -23,3 +23,15 @@ class SinglyLinkedList:
             nodes.append(repr(curr))
             curr = curr.next
         return '[' + ','.join(nodes) + ']'
+
+    def append(self, data):
+        if not self.head:
+            self.head = Node(data=data)
+            return
+        curr = self.head
+        while curr.next:
+            curr = curr.next
+        curr.next = Node(data=data)
+
+    def prepend(self, data):
+        self.head = Node(data=data, next=self.head)
