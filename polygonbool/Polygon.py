@@ -1,3 +1,5 @@
+from .Services import do_intersect
+
 class Polygon:
     points = None
     
@@ -19,3 +21,10 @@ class Polygon:
             if are_collinear(new_points[(i - 1) % len(new_points)], new_points[i % len(new_points)], new_points[(i + 1) % len(new_points)]):
                 del new_points[i]
         return self.__class__(new_points)
+
+    def max_x(self):
+        """
+        Returns the maximum x coordinate of the polygon.
+        :return: float
+        """
+        return max(point[0] for point in self.points)
