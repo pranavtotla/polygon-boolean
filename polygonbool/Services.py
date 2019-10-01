@@ -10,3 +10,25 @@ def on_segment(p, q, r):
         return True 
     return False
 
+def do_intersect(edge1, edge2): 
+    o1 = orientation(edge1[0], edge1[1], edge2[0])
+    o2 = orientation(edge1[0], edge1[1], edge2[1])
+    o3 = orientation(edge2[0], edge2[1], edge1[0])
+    o4 = orientation(edge2[0], edge2[1], edge1[1])
+  
+    if o1 != o2 and o3 != o4: 
+        return True
+  
+    if o1 == 0 and on_segment(edge1[0], edge2[0], edge1[1]):
+        return True 
+  
+    if o2 == 0 and on_segment(edge1[0], edge2[1], edge1[1]):
+        return True
+  
+    if o3 == 0 and on_segment(edge2[0], edge1[0], edge2[1]):
+        return True
+  
+    if o4 == 0 and on_segment(edge2[0], edge1[1], edge2[1]):
+        return True
+
+    return False
